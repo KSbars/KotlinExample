@@ -58,10 +58,7 @@ object UserHolder {
     }
 
     fun requestAccessCode(login: String) {
-        val user = map[login]
-        user?.let {
-            it.changePassword(it.accessCode!!, it.updateRequestCode())
-        }
+        map[login]?.updateRequestCode()
     }
 
     fun importUsers(list: List<String>) : List<User> {

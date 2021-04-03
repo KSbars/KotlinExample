@@ -1,6 +1,7 @@
 package ru.skillbranch.kotlinexample
 
 import androidx.annotation.VisibleForTesting
+import java.lang.Exception
 import java.math.BigInteger
 import java.security.MessageDigest
 import java.security.SecureRandom
@@ -111,7 +112,7 @@ class User private constructor (
         passwordHash = encrypt(newPass)
         if (accessCode.isNullOrEmpty()) accessCode = newPass
         println("Password $oldPass has ben canget on new password $newPass")
-        } else throw IllegalArgumentException("The entered does not match the current password")
+        } else throw Exception("The entered does not match the current password")
     }
 
     private fun encrypt(passord: String): String {
@@ -168,7 +169,7 @@ class User private constructor (
                 !passwordHash.isNullOrBlank() -> User(firstName, lastName, email, salt!!,passwordHash, phone)
                 !phone.isNullOrBlank() -> User(firstName, lastName, phone)
                 !email.isNullOrBlank() && !password.isNullOrBlank() -> User(firstName, lastName, email, password)
-                else -> throw IllegalArgumentException("Email or phone must notbe null or blank")
+                else -> throw Exception("Email or phone must notbe null or blank")
             }
         }
 
@@ -179,7 +180,7 @@ class User private constructor (
                             when(size) {
                                 1 -> first() to null
                                 2 -> first() to last()
-                                else -> throw IllegalArgumentException("Fullname must cotain only first name" +
+                                else -> throw Exception("Fullname must cotain only first name" +
                                         "and last name, current split result ${this@fullNameToPair}")
                             }
                         }
