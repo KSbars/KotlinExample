@@ -39,10 +39,6 @@ class User private constructor (
 
     private var salt: String? = null
 
-//    private val salt: String by lazy {
-//        ByteArray(16).also { SecureRandom().nextBytes(it) }.toString()
-//    }
-
     private lateinit var passwordHash: String
 
     @VisibleForTesting(otherwise = VisibleForTesting.NONE)

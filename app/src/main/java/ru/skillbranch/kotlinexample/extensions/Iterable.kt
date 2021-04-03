@@ -1,4 +1,4 @@
-package ru.skillbranch.kotlinexample.extention
+package ru.skillbranch.kotlinexample.extensions
 
 fun <E> List<E>.dropLastUntil2(predicate: (E) -> Boolean): List<E> {
     val result = this.asReversed().toMutableList()
